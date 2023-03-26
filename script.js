@@ -10,27 +10,22 @@ const textBox = document.getElementById("text-box");
 const DARK_THEME = "dark";
 const LIGHT_THEME = "light";
 
-function imageMode(color) {
+function styleToggle(bg1, bg2, mode, icon1, icon2, color) {
+    nav.style.backgroundColor = bg1;
+    textBox.style.backgroundColor = bg2;
+    toggleIcon.children[0].textContent = mode;
+    toggleIcon.children[1].classList.replace(icon1, icon2);
     image1.src = `img/undraw_proud_coder_${color}.svg`;
     image2.src = `img/undraw_feeling_proud_${color}.svg`;
     image3.src = `img/undraw_conceptual_idea_${color}.svg`;
 }
 
-function styleToggle(bg1, bg2, mode, icon1, icon2) {
-    nav.style.backgroundColor = bg1;
-    textBox.style.backgroundColor = bg2;
-    toggleIcon.children[0].textContent = mode;
-    toggleIcon.children[1].classList.replace(icon1, icon2);
-}
-
 function darkMode() {
-    styleToggle("#000", "rgb(255 255 255 / 50%)", "Dark Mode", "fa-sun", "fa-moon");
-    imageMode("dark");
+    styleToggle("#000", "rgb(255 255 255 / 50%)", "Dark Mode", "fa-sun", "fa-moon", 'dark');
 }
 
 function lightMode() {
-    styleToggle("#FFF", "rgb(0 0 0 / 50%)", "Light Mode", "fa-moon", "fa-sun");
-    imageMode("light");
+    styleToggle("#FFF", "rgb(0 0 0 / 50%)", "Light Mode", "fa-moon", "fa-sun", 'light');
 }
 
 // Switch Theme Dynamically
